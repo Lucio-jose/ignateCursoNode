@@ -3,7 +3,7 @@ import  express  from "express";
 const app = express();
 
 app.use(express.json())
-
+ 
 app.post('/User',(Request, Response)=>{
     
     const {nome}=Request.body;
