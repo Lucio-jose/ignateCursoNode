@@ -1,8 +1,8 @@
 {
-  "name": "iniciandoApiNodejs",
+  "name": "IgnateCursoNode",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "git@github.com:Lucio-jose/iniciandoApiNodejs.git",
+  "repository": "git@github.com:Lucio-jose/IgnateCursoNode.git",
   "author": "Lucio-jose <luciocanganjo2@gmail.com>",
   "license": "MIT",
   "dependencies": {
@@ -11,7 +11,7 @@
     "typescript": "^4.7.4"
   },
   "scripts": {
-    "dev": "ts-node-dev --transpile-only --ignore-watch node_modules src/server.ts"
+    "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules src/server.ts"
   },
   "devDependencies": {
     "eslint": "^8.19.0",
