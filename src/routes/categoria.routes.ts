@@ -16,6 +16,11 @@ categoriaRoute.post("/",(req: Request, res: Response)=>{
        created_ate: new Date()
    })
    
+   const Categor = categoria.find(Categor=>Categor.nome===nome)
+
+   if(Categor){
+       return res.status(400).json({message:"Categoria já existe"})
+   }
 
     categoria.push(category)
     return res.status(201).json({message:`Categoria cadastrado`, categoria})
