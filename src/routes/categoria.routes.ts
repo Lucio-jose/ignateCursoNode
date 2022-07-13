@@ -1,29 +1,26 @@
 import { Router, Request, Response } from "express";
-import { Category} from "../model/categoria";
+import { CategoriaRepository } from "../Repositories/categoriaRepository";
 
-const categoriaRoute = Router()
-
-const categoria: Category[]= [];
+const categoriaRoute = Router();
+const categoriaRepository = new CategoriaRepository();
 
 categoriaRoute.post("/",(req: Request, res: Response)=>{
     const {nome, descricao}= req.body;
 
-   const category= new Category()
-  
-   Object.assign(category, {
-       nome,
-       descricao,
-       created_ate: new Date()
-   })
+    const CategoriaExist= categoriaRepository.findByName(nome);
+    if(CategoriaExist){
+        return res.status(400).json({message:"Categoria já existe"})
+    }
+
+    categoriaRepository.create({nome, descricao})
    
-   const Categor = categoria.find(Categor=>Categor.nome===nome)
-
-   if(Categor){
-       return res.status(400).json({message:"Categoria já existe"})
-   }
-
-    categoria.push(category)
-    return res.status(201).json({message:`Categoria cadastrado`, categoria})
+    return res.status(201).send()
 })
 
-export {categoriaRoute}
+categoriaRoute.get("/",(req: Request, res: Response)=>{
+    const allCategories = categoriaRepository.list();
+
+    return res.status(200).json(allCategories)
+})
+
+export {categoriaRoute};

@@ -8,7 +8,7 @@ app.use(express.json())
 app.get('/',(Request, Response)=>{
     return Response.status(200).json({message:"Ola Mundo2"})
 })
-
+ 
 app.use("/categoria", categoriaRoute)
 
 app.listen(3033,()=>{
