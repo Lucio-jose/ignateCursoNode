@@ -1,4 +1,5 @@
 import { CategoriaRepository } from "../Repositories/categoriaRepository";
+import { IcategoryRepository } from "../Repositories/IcategoryRepository";
 
 
 interface IRequeste{
@@ -8,7 +9,7 @@ interface IRequeste{
 
 
 class CreateCategoryService{
-    constructor(private categoriaRepository: CategoriaRepository){}
+    constructor(private categoriaRepository: IcategoryRepository){}
 
 
     execute({nome, descricao}: IRequeste):void{
