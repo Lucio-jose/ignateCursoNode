@@ -11,6 +11,7 @@ app.get('/',(Request, Response)=>{
 })
   
 app.use("/categoria", categoriaRoute)
+
 app.use("/spacification", spacificationRoute)
 
 app.listen(3033,()=>{
