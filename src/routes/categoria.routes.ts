@@ -1,7 +1,7 @@
 import { Router, Request, Response } from "express";
 import { CategoriaRepository } from "../modules/cars/Repositories/categoriaRepository";
 //import { PostgresCategoryRepository } from "../modules/cars/Repositories/postgresCategoryRepository";
-import { CreateCategoryService } from "../modules/cars/services/CreateCategoryService";
+import { CreateCategoryUseCase } from "../modules/cars/useCase/createCategory/CreateCategoryUseCase";
 
 const categoriaRoute = Router();
 const categoriaRepository = new CategoriaRepository();
@@ -9,9 +9,9 @@ const categoriaRepository = new CategoriaRepository();
 categoriaRoute.post("/",(req: Request, res: Response)=>{
     const {nome, descricao}= req.body;
 
-    const createCategoryService = new CreateCategoryService(categoriaRepository);
+    const createCategoryUseCase = new CreateCategoryUseCase(categoriaRepository);
 
-    createCategoryService.execute({nome, descricao})
+    createCategoryUseCase.execute({nome, descricao})
 
     return res.status(201).send()
 })

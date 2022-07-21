@@ -1,14 +1,11 @@
-import { CategoriaRepository } from "../Repositories/categoriaRepository";
-import { IcategoryRepository } from "../Repositories/IcategoryRepository";
-
+import { IcategoryRepository } from "../../Repositories/IcategoryRepository";
 
 interface IRequeste{
     nome: string;
     descricao: string
 }
 
-
-class CreateCategoryService{
+class CreateCategoryUseCase{
     constructor(private categoriaRepository: IcategoryRepository){}
 
 
@@ -24,5 +21,5 @@ class CreateCategoryService{
     this.categoriaRepository.create({nome, descricao})
     }
 }
-export {CreateCategoryService}
+export {CreateCategoryUseCase}
 
