@@ -1,19 +1,12 @@
 import { Router, Request, Response } from "express";
 import { CategoriaRepository } from "../modules/cars/Repositories/categoriaRepository";
-//import { PostgresCategoryRepository } from "../modules/cars/Repositories/postgresCategoryRepository";
-import { CreateCategoryUseCase } from "../modules/cars/useCase/createCategory/CreateCategoryUseCase";
+import { createCategoryController } from "../modules/cars/useCase/createCategory";
 
 const categoriaRoute = Router();
 const categoriaRepository = new CategoriaRepository();
 
 categoriaRoute.post("/",(req: Request, res: Response)=>{
-    const {nome, descricao}= req.body;
-
-    const createCategoryUseCase = new CreateCategoryUseCase(categoriaRepository);
-
-    createCategoryUseCase.execute({nome, descricao})
-
-    return res.status(201).send()
+   return createCategoryController.handle(req, res)
 })
 
 categoriaRoute.get("/",(req: Request, res: Response)=>{
