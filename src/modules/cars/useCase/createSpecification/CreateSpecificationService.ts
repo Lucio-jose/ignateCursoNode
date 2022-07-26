@@ -1,4 +1,4 @@
-import { IspacificationRepository } from "../Repositories/IspecificationRepositroy";
+import { IspacificationRepository } from "../../Repositories/IspecificationRepositroy";
 
 interface IData{
 nome: string;

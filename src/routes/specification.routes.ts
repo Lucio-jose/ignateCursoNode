@@ -1,7 +1,7 @@
 import { Router, Request, Response } from "express";
-import { SpecificationRepository } from "../modules/cars/Repositories/specificationRepository";
+import { SpecificationRepository } from "../modules/cars/Repositories/implementations/specificationRepository";
 //import { PostgresCategoryRepository } from "../modules/cars/Repositories/postgresCategoryRepository";
-import { CreateSpecificationService } from "../modules/cars/services/CreateSpecificationService";
+import { CreateSpecificationService } from "../modules/cars/useCase/createSpecification/CreateSpecificationService";
 
 const spacificationRoute = Router();
 const spacificationRepository = new SpecificationRepository();
