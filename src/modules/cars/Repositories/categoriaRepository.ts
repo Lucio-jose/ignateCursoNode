@@ -4,11 +4,19 @@ import { IcategoryRepository, ICreateCategoryDTO } from "./IcategoryRepository";
 
 class CategoriaRepository implements IcategoryRepository{
 
+    private static INSTANCE: CategoriaRepository;
 
     private categoria: Category[];
 
-    constructor(){
+    private constructor(){
         this.categoria = [];
+    }
+
+    public static getINSTANCE(): CategoriaRepository{
+        if(!CategoriaRepository.INSTANCE){
+            CategoriaRepository.INSTANCE = new CategoriaRepository
+        }
+        return CategoriaRepository.INSTANCE
     }
 
     create({nome, descricao}:ICreateCategoryDTO):void{
