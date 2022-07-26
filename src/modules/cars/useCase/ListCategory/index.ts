@@ -6,4 +6,4 @@ const categoriaRepository = new CategoriaRepository()
 const listCategoryUseCase = new ListCategoryUseCase(categoriaRepository)
 const listCategoryController = new ListCategoryController(listCategoryUseCase);
 
-
+export {listCategoryController}
