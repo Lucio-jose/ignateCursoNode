@@ -1,11 +1,11 @@
-import { IspacificationRepository } from "../Repositories/IspecificationRepositroy";
+import { IspacificationRepository } from "../../Repositories/IspecificationRepositroy";
 
 interface IData{
 nome: string;
 descricao: string;
 }
 
-class CreateSpecificationService{
+class CreateSpecificationUseCase{
     constructor(private spacificationRepository: IspacificationRepository){}
 
     execute({nome, descricao}: IData):void{
@@ -19,4 +19,4 @@ class CreateSpecificationService{
         this.spacificationRepository.create({nome, descricao})
     }
 }
-export {CreateSpecificationService}
+export {CreateSpecificationUseCase}

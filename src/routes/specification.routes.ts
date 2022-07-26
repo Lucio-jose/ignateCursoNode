@@ -1,19 +1,12 @@
 import { Router, Request, Response } from "express";
-import { SpecificationRepository } from "../modules/cars/Repositories/specificationRepository";
-//import { PostgresCategoryRepository } from "../modules/cars/Repositories/postgresCategoryRepository";
-import { CreateSpecificationService } from "../modules/cars/services/CreateSpecificationService";
+import { SpecificationRepository } from "../modules/cars/Repositories/implementations/specificationRepository";
+import { createSpecificationController } from "../modules/cars/useCase/createSpecification";
 
 const spacificationRoute = Router();
-const spacificationRepository = new SpecificationRepository();
+const spacificationRepository = SpecificationRepository.getINSTANCE();
 
-spacificationRoute.post("/",(req: Request, res: Response)=>{
-    const {nome, descricao}= req.body;
-
-    const createCategoryService = new CreateSpecificationService(spacificationRepository);
-
-    createCategoryService.execute({nome, descricao})
-
-    return res.status(201).send()
+spacificationRoute.post("/",(request: Request, response: Response)=>{
+    return createSpecificationController.handle(request, response)
 })
 
 spacificationRoute.get("/",(req: Request, res: Response)=>{
