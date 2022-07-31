@@ -1,8 +1,0 @@
-{
-    "type":"postgres",
-    "host":"localhost",
-    "username":"",
-    "password":"",
-    "port":"",
-    "database":""
-}
