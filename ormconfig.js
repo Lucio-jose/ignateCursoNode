@@ -2,7 +2,7 @@ module.exports ={
     "type":"postgres",
     "host":"localhost",
     "username":"",
-    "password":"",
+    "password":"root",
     "port":"",
     "database":"",
     entities: ["src/app/models/*.ts"],
